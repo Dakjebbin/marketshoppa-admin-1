@@ -58,7 +58,7 @@ setIsLoading(true)
         <div className='bg-primary flex items-center justify-center shrink-0 w-7.75 h-7.75 rounded-md'>
         <img className='w-[70%] shrink-0 ' src={assets.logo} alt="logo" />
         </div>
-        <p className='font-bold text-lg'>MarketMate <span className='bg-text'>Admin</span></p>
+        <p className='font-bold text-lg'>MarketShoppa <span className='bg-text'>Admin</span></p>
       </div>
       <p className="md:text-3xl text-2xl text-center font-bold mt-5 text-gray-800 ">Log in to your MarketShoppa Account</p>
 

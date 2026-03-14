@@ -378,7 +378,8 @@ const Hero = () => {
             >
               <div className="flex w-full px-5 py-4.5">
                 <div className="flex w-full items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
+                  <div className="flex gap-3 md:flex-row flex-col">
+                   <div className="flex gap-3">
                     <div className="bg-[#f0fdf4] rounded-lg border border-[#d1fae5] md:w-10 w-7.5 md:h-10 h-7.5 flex items-center justify-center shrink-0">
                       <BiReceipt className="text-[#3ea40b]" size={22} />
                     </div>
@@ -394,9 +395,9 @@ const Hero = () => {
                         <p>{formatDate(q.createdAt)}</p>
                       </div>
                     </div>
-                  </div>
+                    </div>
 
-                  <div className="flex items-center md:gap-3 gap-1">
+                    <div className="flex items-center md:gap-3 gap-1">
                     {q.status === "pending_quote" && (
                       <p className="bg-[#fef3c7] text-[#b45309] text-[11px] font-bold py-1 md:px-2.75 px-2.25 whitespace-nowrap border rounded-3xl border-[b4530930]">
                         Needs Quote
@@ -429,14 +430,16 @@ const Hero = () => {
                         </p>
                       </span>
                     )}
-                    <button
+                  </div>
+                 
+                  </div>
+                  <button
                       className="cursor-pointer"
                       onClick={() => toggleDropDown(q._id)}
                     >
                       {" "}
                       <IoIosArrowDown className="text-[#9ca3af]" />
                     </button>
-                  </div>
                 </div>
               </div>
 
@@ -582,7 +585,7 @@ const Hero = () => {
                       </div>
                     </div>
 
-                    <div className="flex mb-7 justify-between border border-[#e5e7eb] rounded-lg px-3.75 py-2.75 bg-[#f9fafb] w-full items-center gap-3 ">
+                    <div className="flex md:flex-row flex-col mb-7 justify-between border border-[#e5e7eb] rounded-lg px-3.75 py-2.75 bg-[#f9fafb] w-full md:items-center gap-3 ">
                       <div className="flex flex-col">
                         <label htmlFor="computedtotal" className="text-[#9ca3af] w-full text-[12px] font-bold uppercase">
                           Computed Total (₦)
@@ -604,7 +607,7 @@ const Hero = () => {
                         <button
                           onClick={() => sendQuote(q._id, q.items)}
                           disabled={loading[q._id]}
-                          className="bg-primary text-white flex gap-2 items-center px-6 py-3 font-semibold rounded-xl cursor-pointer text-sm disabled:opacity-50"
+                          className="bg-primary text-white flex gap-2 items-center px-6 py-3 font-semibold rounded-xl justify-center cursor-pointer text-sm disabled:opacity-50"
                         >
                           <IoSend />
                           {loading[q._id]
