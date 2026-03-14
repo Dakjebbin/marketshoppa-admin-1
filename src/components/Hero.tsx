@@ -295,14 +295,14 @@ const Hero = () => {
 
           <button
             onClick={() => setQuotesTab("payment_received")}
-            className={`flex items-center gap-2 text-[13px] font-semibold px-[15px] py-[7px] rounded-3xl transition-all cursor-pointer ${
+            className={`flex items-center gap-2 text-[13px] font-semibold px-3.75 py-1.75 rounded-3xl transition-all cursor-pointer ${
               quotesTab === "payment_received"
                 ? "bg-[#f0fdf4] border border-[#3ea40b] text-[#3ea40b]"
                 : "bg-white border border-[#e5e7eb] text-[#6b7280] hover:border hover:border-[#3ea40b60] hover:text-[#374151]"
             }`}
           >
             <p>Payment Received</p>
-            <p className="bg-[#f3f4f6] rounded-full text-[#9ca3af] rounded-full px-[7px] py-[1px]">
+            <p className="bg-[#f3f4f6] text-[#9ca3af] rounded-full px-1.75 py-px">
               {paymentCount}
             </p>
           </button>
@@ -311,14 +311,14 @@ const Hero = () => {
 
           <button
             onClick={() => setQuotesTab("inDelivery")}
-            className={`flex items-center gap-2 text-[13px] font-semibold px-[15px] py-[7px] rounded-3xl transition-all cursor-pointer ${
+            className={`flex items-center gap-2 text-[13px] font-semibold px-3.75 py-1.75 rounded-3xl transition-all cursor-pointer ${
               quotesTab === "inDelivery"
                 ? "bg-[#f0fdf4] border border-[#3ea40b] text-[#3ea40b]"
                 : "bg-white border border-[#e5e7eb] text-[#6b7280] hover:border hover:border-[#3ea40b60] hover:text-[#374151]"
             }`}
           >
             <p>In Delivery</p>
-            <p className="bg-[#f3f4f6] rounded-full text-[#9ca3af] rounded-full px-[7px] py-[1px]">
+            <p className="bg-[#f3f4f6] text-[#9ca3af] rounded-full px-1.75 py-px">
               {inDeliveryCount}
             </p>
           </button>
@@ -327,28 +327,28 @@ const Hero = () => {
 
           <button
             onClick={() => setQuotesTab("delivered")}
-            className={`flex items-center gap-2 text-[13px] font-semibold px-[15px] py-[7px] rounded-3xl transition-all cursor-pointer ${
+            className={`flex items-center gap-2 text-[13px] font-semibold px-3.75 py-1.75 rounded-3xl transition-all cursor-pointer ${
               quotesTab === "delivered"
                 ? "bg-[#f0fdf4] border border-[#3ea40b] text-[#3ea40b]"
                 : "bg-white border border-[#e5e7eb] text-[#6b7280] hover:border hover:border-[#3ea40b60] hover:text-[#374151]"
             }`}
           >
             <p>Delivered</p>
-            <p className="bg-[#f3f4f6] rounded-full text-[#9ca3af] rounded-full px-[7px] py-[1px]">
+            <p className="bg-[#f3f4f6] text-[#9ca3af] rounded-full px-1.75 py-px">
               {deliveredCount}
             </p>
           </button>
 
           <button
             onClick={() => setQuotesTab("all")}
-            className={`flex items-center gap-2 text-[13px] font-semibold px-[15px] py-[7px] rounded-3xl transition-all cursor-pointer ${
+            className={`flex items-center gap-2 text-[13px] font-semibold px-3.75 py-1.75 rounded-3xl transition-all cursor-pointer ${
               quotesTab === "all"
                 ? "bg-[#f0fdf4] border border-[#3ea40b] text-[#3ea40b]"
                 : "bg-white border border-[#e5e7eb] text-[#6b7280] hover:border hover:border-[#3ea40b60] hover:text-[#374151]"
             }`}
           >
             <p>All</p>
-            <p className="bg-[#f3f4f6] rounded-full text-[#9ca3af] rounded-full px-[7px] py-[1px]">
+            <p className="bg-[#f3f4f6] text-[#9ca3af] rounded-full px-1.75 py-px">
               {quotes.length}
             </p>
           </button>
@@ -379,7 +379,7 @@ const Hero = () => {
               <div className="flex w-full px-5 py-4.5">
                 <div className="flex w-full items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="bg-[#f0fdf4] rounded-lg border border-[#d1fae5] md:w-[40px] w-[30px] md:h-[40px] h-[30px] flex items-center justify-center shrink-0">
+                    <div className="bg-[#f0fdf4] rounded-lg border border-[#d1fae5] md:w-10 w-7.5 md:h-10 h-7.5 flex items-center justify-center shrink-0">
                       <BiReceipt className="text-[#3ea40b]" size={22} />
                     </div>
                     <div>
@@ -398,7 +398,7 @@ const Hero = () => {
 
                   <div className="flex items-center md:gap-3 gap-1">
                     {q.status === "pending_quote" && (
-                      <p className="bg-[#fef3c7] text-[#b45309] text-[11px] font-bold py-[4px] md:px-[11px] px-[9px] whitespace-nowrap border rounded-3xl border-[b4530930]">
+                      <p className="bg-[#fef3c7] text-[#b45309] text-[11px] font-bold py-1 md:px-2.75 px-2.25 whitespace-nowrap border rounded-3xl border-[b4530930]">
                         Needs Quote
                       </p>
                     )}
@@ -406,7 +406,7 @@ const Hero = () => {
                     {q.status === "quote_Sent" && (
                       <span className="flex items-center gap-2">
                         <p className="font-semibold">₦ {q.totalAmount}</p>
-                        <p className="bg-[#eff6ff] text-[#1d4ed8] text-[11px] font-bold py-[4px] md:px-[11px] px-[9px] whitespace-nowrap border rounded-3xl border-[b4530930]">
+                        <p className="bg-[#eff6ff] text-[#1d4ed8] text-[11px] font-bold py-1 md:px-2.75 px-2.25 whitespace-nowrap border rounded-3xl border-[b4530930]">
                           Quote Sent
                         </p>
                       </span>
@@ -415,7 +415,7 @@ const Hero = () => {
                     {q.status === "payment_pending" && (
                       <span className="flex items-center gap-2">
                         <p className="font-semibold">₦ {q.totalAmount}</p>
-                        <p className="bg-[#f5f3ff] text-[#7c3aed] text-[11px] font-bold py-[4px] md:px-[11px] px-[9px] whitespace-nowrap border rounded-3xl border-[b4530930]">
+                        <p className="bg-[#f5f3ff] text-[#7c3aed] text-[11px] font-bold py-1 md:px-2.75 px-2.25 whitespace-nowrap border rounded-3xl border-[b4530930]">
                           ⏳ Awaiting Payment
                         </p>
                       </span>
@@ -424,7 +424,7 @@ const Hero = () => {
                     {q.status === "confirmed" && (
                       <span className="flex items-center gap-2">
                         <p className="font-semibold">₦ {q.totalAmount}</p>
-                        <p className="bg-[#f5f3ff] text-[#7c3aed] text-[11px] font-bold py-[4px] md:px-[11px] px-[9px] whitespace-nowrap border rounded-3xl border-[b4530930]">
+                        <p className="bg-[#f5f3ff] text-[#7c3aed] text-[11px] font-bold py-1 md:px-2.75 px-2.25 whitespace-nowrap border rounded-3xl border-[b4530930]">
                           💰 Payment Received
                         </p>
                       </span>
@@ -442,7 +442,7 @@ const Hero = () => {
 
               {dropDown === q._id && (
                 <div>
-                  <div className="bg-[#f9fafb] border-b border-[#e5e7eb] border-t border-[#e5e7eb]">
+                  <div className="bg-[#f9fafb] border-b border-t border-[#e5e7eb]">
                     <div className="px-5 py-4.5 flex gap-4 text-[#9ca3af] flex-wrap">
                       <div className="flex items-center gap-4">
                         <FaUser size={13} />
@@ -483,7 +483,7 @@ const Hero = () => {
                     </p>
 
                     <div className="bg-[#f9fafb] mt-4 border border-[#e5e7eb] rounded-xl overflow-x-auto">
-                      <div className="min-w-[600px]">
+                      <div className="min-w-150">
                         {/* header row */}
                         <div className="grid grid-cols-4 px-4 py-2 border-b border-[#e5e7eb]">
                           {[
@@ -544,7 +544,7 @@ const Hero = () => {
                         </label>
 
                         <input
-                          className="border border-[#e5e7eb] rounded-lg px-[13px] py-[11px] text-[14px] text-[#111827] outline-none focus:border-[#3ea40b] w-full bg-[#f9fafb]"
+                          className="border border-[#e5e7eb] rounded-lg px-3.25 py-2.75 text-[14px] text-[#111827] outline-none focus:border-[#3ea40b] w-full bg-[#f9fafb]"
                           type="number"
                           id="serviceCharge"
                           readOnly
@@ -561,7 +561,7 @@ const Hero = () => {
                           Delivery fee (₦)
                         </label>
                         <input
-                          className="border border-[#e5e7eb] rounded-lg px-[13px] py-[11px] text-[14px] text-[#111827] outline-none focus:border-[#3ea40b] w-full bg-[#f9fafb]"
+                          className="border border-[#e5e7eb] rounded-lg px-3.25 py-2.75 text-[14px] text-[#111827] outline-none focus:border-[#3ea40b] w-full bg-[#f9fafb]"
                           type="number"
                           placeholder="0.00"
                           required
@@ -582,13 +582,13 @@ const Hero = () => {
                       </div>
                     </div>
 
-                    <div className="flex mb-7 justify-between border border-[#e5e7eb] rounded-lg px-[13px] py-[11px] bg-[#f9fafb] w-full items-center gap-3 ">
+                    <div className="flex mb-7 justify-between border border-[#e5e7eb] rounded-lg px-3.75 py-2.75 bg-[#f9fafb] w-full items-center gap-3 ">
                       <div className="flex flex-col">
                         <label htmlFor="computedtotal" className="text-[#9ca3af] w-full text-[12px] font-bold uppercase">
                           Computed Total (₦)
                         </label>
                         <input
-                          className=" rounded-lg bg-text px-[13px] py-[11px] text-[25px] text-[#111827] outline-none focus:border-[#3ea40b] font-bold"
+                          className=" rounded-lg bg-text px-3.25 py-2.75 text-[25px] text-[#111827] outline-none focus:border-[#3ea40b] font-bold"
                           type="text"
                           readOnly
                           id="computedtotal"
@@ -616,7 +616,7 @@ const Hero = () => {
                       {/* show this instead when quote already sent */}
                       {!canEdit(q.status) && (
                         <div>
-                          <div className="flex items-center w-fit gap-[7px] bg-[#eff6ff] border-[1.5px] border-[#bfdbfe] rounded-[10px] px-4 py-[10px]">
+                          <div className="flex items-center w-fit gap-1.75 bg-[#eff6ff] border-[1.5px] border-[#bfdbfe] rounded-[10px] px-4 py-2.5">
                             <span className="flex items-center gap-1 w-fit">
                               {q.status === "quote_Sent" && (
                                 <IoSend size={16} color="#1d4ed8" />
