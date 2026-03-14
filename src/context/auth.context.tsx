@@ -52,7 +52,6 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
         } else {
           console.error("An error Occured");
         }
-        console.log("user details =>", response);
       } catch (error) {
         if (error instanceof axios.AxiosError) {
           if (error?.response?.data) {
