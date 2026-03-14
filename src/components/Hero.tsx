@@ -15,7 +15,17 @@ import { useAuth } from "../context/auth.context";
 type User = {
   fullName: string;
   email: string;
+  phoneNumber: string
   address: string;
+  deliveryAddress: DeliveryAddressType
+};
+
+type DeliveryAddressType = {
+street: string;
+city: string;
+state: string
+postalCode?: string
+landmark?: string
 };
 
 type ItemType = {
@@ -466,6 +476,15 @@ const Hero = () => {
                         </div>
                       </div>
 
+                      <div>
+                        <div className="flex flex-col gap-2">
+                          <p className="text-[11px] font-bold">PHONE NUMBER</p>
+                          <p className="text-[#374151] font-bold text-[12px]">
+                            {q.userId.phoneNumber}
+                          </p>
+                        </div>
+                      </div>
+
                       <div className="flex items-center gap-4">
                         <TbTruckDelivery size={13} />
                         <div className="flex flex-col gap-2">
@@ -473,7 +492,17 @@ const Hero = () => {
                             DELIVERY ADDRESS
                           </p>
                           <p className="text-[#374151] font-bold text-[12px]">
-                            {q.userId.address}
+                          {q.userId.deliveryAddress
+        ? [
+            q.userId.deliveryAddress?.street,
+            q.userId.deliveryAddress?.city,
+            q.userId.deliveryAddress?.state,
+            q.userId.deliveryAddress?.postalCode,
+            q.userId.deliveryAddress?.landmark,
+          ]
+            .filter(Boolean)
+            .join(", ")
+        : q.userId.address}
                           </p>
                         </div>
                       </div>
