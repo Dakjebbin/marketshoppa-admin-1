@@ -36,6 +36,7 @@ type ItemType = {
   quantity: string;
   targetBudget: string;
   actualPrice?: number;
+  notes: string
 };
 
 type quoteType = {
@@ -517,10 +518,11 @@ const Hero = () => {
                     <div className="bg-[#f9fafb] mt-4 border border-[#e5e7eb] rounded-xl overflow-x-auto">
                       <div className="min-w-150">
                         {/* header row */}
-                        <div className="grid grid-cols-4 px-4 py-2 border-b border-[#e5e7eb]">
+                        <div className="grid grid-cols-5 px-4 py-2 border-b border-[#e5e7eb]">
                           {[
                             "Product",
                             "Qty",
+                            "Notes",
                             "Budget (₦)",
                             "Actual Price (₦)",
                           ].map((h) => (
@@ -537,13 +539,17 @@ const Hero = () => {
                         {q.items.map((item, i) => (
                           <div
                             key={item._id}
-                            className="grid grid-cols-4 border-b border-[#e5e7eb] px-4 py-3 items-center"
+                            className="grid grid-cols-5 border-b border-[#e5e7eb] px-4 py-3 items-center"
                           >
                             <p className="text-[13px] font-semibold text-[#111827]">
                               {item.name}
                             </p>
                             <p className="text-[12.5px] text-[#6b7280]">
                               {item.quantity}
+                            </p>
+
+                            <p className="text-[12.5px] text-[#6b7280]">
+                              {item.notes}
                             </p>
                             <p className="text-[12.5px] text-[#6b7280]">
                               ₦ {item.targetBudget || "0"}
