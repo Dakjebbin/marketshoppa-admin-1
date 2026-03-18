@@ -3,18 +3,54 @@ import toast from "react-hot-toast";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { useAuth } from "../context/auth.context";
+import { useEffect, useRef } from "react";
+import { io, type Socket } from "socket.io-client";
 
 const Home = () => {
   const { user } = useAuth();
+  const socketRef = useRef<Socket | null>(null);
 
-  if(!user){
-    return null
+  interface Order {
+    id: string;
+    customerName: string;
   }
 
-  if(user.role !== "Admin") {
-     window.location.assign("/")
-     toast.error("Not admin")
-     return null
+  useEffect(() => {
+    if (!user || user.role !== "Admin") return;
+
+    if (Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+
+    socketRef.current = io(import.meta.env.VITE_BASE_URL || "/api", {
+      withCredentials: true,
+    });
+
+    socketRef.current.emit("join_admin");
+
+    socketRef.current.on("new_order", (order: Order) => {
+      if (Notification.permission === "granted") {
+        new Notification("🛒 New Order Received!", {
+          body: `${order.customerName} placed an order`,
+          icon: "/logo.svg", 
+          badge: "/logo.svg",
+          tag: order.id,
+        });
+      }
+    });
+
+    return () => {
+      socketRef.current?.off("new_order");
+      socketRef.current?.disconnect();
+    };
+  }, [user])
+
+  if (!user) return null;
+
+  if (user.role !== "Admin") {
+    window.location.assign("/");
+    toast.error("Not admin");
+    return null;
   }
   return (
     <>
