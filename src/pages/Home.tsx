@@ -15,21 +15,31 @@ const Home = () => {
     customerName: string;
   }
 
+  const notificationsSupported = () => {
+    return 'Notification' in window && 
+           'serviceWorker' in navigator;
+  };
+
   useEffect(() => {
     if (!user || user.role !== "Admin") return;
 
-    if (Notification.permission === "default") {
+    if (notificationsSupported() && Notification.permission === "default") {
       Notification.requestPermission();
     }
 
     socketRef.current = io(import.meta.env.VITE_BASE_URL || "/api", {
       withCredentials: true,
+      transports: ['polling', 'websocket'],
+        upgrade: true,
+        reconnection: true,
+        reconnectionAttempts: 5,
     });
 
     socketRef.current.emit("join_admin");
 
     socketRef.current.on("new_order", (order: Order) => {
-      if (Notification.permission === "granted") {
+      toast.success(`🛒 New Order from ${order.customerName}!`);
+      if (notificationsSupported() && Notification.permission === "granted") {
         new Notification("🛒 New Order Received!", {
           body: `${order.customerName} placed an order`,
           icon: "/logo.svg", 
